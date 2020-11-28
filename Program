@@ -4,7 +4,6 @@
 
 # Setup and variables
 import csv
-import pandas as pd
 
 # In order to adapt this program for any text file you have, enter the file path and name of the document you want to scan
 f = open("C:/file.txt","r")
