@@ -1,0 +1,35 @@
+# character_counter
+# A program that takes text files, and counts how many times a character is used in the document, and exports it into a CSV file.
+
+
+# Setup and variables
+import csv
+import pandas as pd
+
+# In order to adapt this program for any text file you have, enter the file path and name of the document you want to scan
+f = open("C:/file.txt","r")
+text = f.read()
+length = len(text)
+letters = {}
+
+# Counting uses and creating diary entries
+for count in range(0, length):
+    char = text[count]
+    char = char.upper()
+    if char not in letters:
+        letters[char] = 0
+        letters[char] = letters[char] + 1
+    else:
+        currentNum = letters[char] + 1
+        letters[char] = letters[char] + 1
+for i in letters:
+    print(i, letters[i])
+f.close()
+
+# Creating csv file
+f = open("C:/Users/joost/desktop/Python programs/temporary python data.csv","w",newline="")
+writer = csv.writer(f)
+writer.writerow(["Character","No. times used"])
+for count in letters:
+    writer.writerow([count, letters[count]])
+f.close()
